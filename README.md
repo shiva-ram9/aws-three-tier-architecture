@@ -14,6 +14,8 @@ The design focuses on high availability, scalability, security, and fault tolera
 
 ## 🏗️ Architecture
 
+![AWS Three-Tier Architecture](architecture-diagram.png)
+
 ```text
                     Internet
                        |
