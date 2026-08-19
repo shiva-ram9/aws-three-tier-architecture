@@ -95,6 +95,22 @@ A temporary NAT Gateway was used to install packages on private EC2 instances an
 |---|---|
 | ![ALB HTTP 200](screenshots/alb-http-200.png) | ![CloudWatch alarm](screenshots/cloudwatch-alarm.png) |
 
+## Repository Structure
+
+| Path | Purpose |
+|---|---|
+| [`README.md`](README.md) | Project overview, evidence and skills demonstrated |
+| [`architecture/`](architecture/) | Architecture explanation and diagram reference |
+| [`docs/`](docs/) | Deployment, security and validation documentation |
+| [`infrastructure/terraform/`](infrastructure/terraform/) | Reproducible Terraform reference implementation |
+| [`application/`](application/) | Sample PHP application and ALB health endpoint |
+| [`scripts/`](scripts/) | EC2 bootstrap and deployment-validation scripts |
+| [`screenshots/`](screenshots/) | Evidence that the deployment worked |
+| [`.gitignore`](.gitignore) | Prevents local secrets and generated files from being committed |
+| [`LICENSE`](LICENSE) | MIT open-source license |
+
+> **Implementation note:** The screenshots document the environment built manually in the AWS Console. The Terraform configuration was added afterward as a reusable Infrastructure as Code reference and must be reviewed with `terraform plan` before deployment.
+
 ## Skills Demonstrated
 
 | Category | Services and concepts |
