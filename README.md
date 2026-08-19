@@ -57,6 +57,44 @@ A temporary NAT Gateway was used to install packages on private EC2 instances an
 - A CloudWatch high-CPU alarm was created.
 - The original standalone build instance was terminated after the AMI and launch template were validated.
 
+## Deployment Evidence
+
+### 1. Network foundation
+
+| Six-subnet VPC | Public route to Internet Gateway |
+|---|---|
+| ![VPC subnets](screenshots/vpc-subnets.png) | ![Public route table](screenshots/public-route-table.png) |
+
+### 2. Security groups
+
+| ALB: public HTTP | Application: HTTP only from ALB |
+|---|---|
+| ![ALB security group](screenshots/security-group-alb.png) | ![Application security group](screenshots/security-group-app.png) |
+
+| Database: MySQL only from application tier | Private RDS |
+|---|---|
+| ![RDS security group](screenshots/security-group-rds.png) | ![Private RDS](screenshots/rds-private.png) |
+
+### 3. Compute and scaling
+
+| Private EC2 instances | Launch template |
+|---|---|
+| ![Private EC2 instances](screenshots/ec2-private-instance.png) | ![Launch template](screenshots/launch-template.png) |
+
+| Auto Scaling instances InService | Healthy target-group instances |
+|---|---|
+| ![Auto Scaling instances](screenshots/asg-inservice.png) | ![Healthy targets](screenshots/target-group-healthy.png) |
+
+### 4. Load balancing and validation
+
+| Active Application Load Balancer | HTTP listener |
+|---|---|
+| ![Active ALB](screenshots/alb-active.png) | ![ALB listener](screenshots/alb-listener.png) |
+
+| ALB health endpoint: HTTP 200 | CloudWatch CPU alarm |
+|---|---|
+| ![ALB HTTP 200](screenshots/alb-http-200.png) | ![CloudWatch alarm](screenshots/cloudwatch-alarm.png) |
+
 ## Skills Demonstrated
 
 | Category | Services and concepts |
